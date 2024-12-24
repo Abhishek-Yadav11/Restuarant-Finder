@@ -1,15 +1,16 @@
 import React from "react";
 
+
 class UserClass extends React.Component {
      
     constructor(props) {
         super(props);
         this.state = {
             userinfo: {
-                name: "Default Name",
+                name: "Default",
                 location: "India",
-            }
-        };
+                email: "@gmail.com"
+        }};
     }
 
     async componentDidMount() {
@@ -22,18 +23,34 @@ class UserClass extends React.Component {
             userinfo: {
                 name: json.name,
                 location: json.location,
+                email: json.email
             }
-        }); 
+        });
+        
+        //this.timer = setInterval(() => console.log("Hello"), 1000);
+
+
+
     }
+    
+    // componentDidUpdate() {
+    //     console.log("Component Updated");
+    // }
+    // componentWillUnmount() {
+            // clearInterval(this.timer);
+    //     console.log("Component Unmounted");
+    // }
+
 
     render(){
 
-        const {name, location} = this.state.userinfo;
+        const {name, location,email} = this.state.userinfo;
+
         return (
             <div className="user-card">
-                <h3>Name: {name}</h3>
-                <h4>Location: {location}</h4>
-                <h4>Contact : abhishek1102yadav@gmail.com</h4>
+                <h3>Name: {name || "Default"}</h3>
+                <h4>Location: {location || "India"}</h4>
+                <h4>Contact : {email || "@gmail.com"}</h4>
             </div>
         )
     }
