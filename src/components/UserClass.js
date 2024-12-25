@@ -10,7 +10,8 @@ class UserClass extends React.Component {
                 name: "Default",
                 location: "India",
                 email: "@gmail.com"
-        }};
+            }       
+        };
     }
 
     async componentDidMount() {
@@ -18,7 +19,7 @@ class UserClass extends React.Component {
         const data = await fetch("https://api.github.com/users/Abhishek-Yadav11");
         const json = await data.json();
 
-        console.log(json);
+        //console.log(json);
         this.setState({
             userinfo: {
                 name: json.name,
@@ -28,9 +29,6 @@ class UserClass extends React.Component {
         });
         
         //this.timer = setInterval(() => console.log("Hello"), 1000);
-
-
-
     }
     
     // componentDidUpdate() {

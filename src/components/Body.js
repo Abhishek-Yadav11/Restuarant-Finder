@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import  useOnlineStatus  from "../utils/useOnlineStatus";
 
 const Body = () =>{
 
@@ -19,9 +20,20 @@ const Body = () =>{
 
         const json =await data.json();
         
-        console.log(json.data.cards.slice(4,15));
+        //console.log(json.data.cards.slice(4,15));
         setListOfRestuarant(json.data.cards.slice(4,15));
         setFilteredRestaurant(json.data.cards.slice(4,15));
+    }
+
+
+    const onlineStatus = useOnlineStatus();
+    if(!onlineStatus){
+        return <div className="offline">
+            <h1>Looks like you're offline!! Check your internet</h1>
+            <div className="game-container">
+            <div className="ball"></div>
+            </div>
+        </div>
     }
 
     return listOfRestuarant.length===0 ? <Shimmer></Shimmer> : (

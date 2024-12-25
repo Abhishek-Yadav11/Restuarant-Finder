@@ -446,3 +446,32 @@
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
 }
+
+.offline {
+    color: white;
+    background: linear-gradient(90deg, #ff6b6b, #d64545);
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 20px auto;
+    width: fit-content;
+    max-width: 90%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    animation: pulse 1.5s infinite;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Pulse animation for a subtle attention effect */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
